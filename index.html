@@ -195,7 +195,6 @@ const sfx = {
 };
 
 // ── Map helpers ────────────────────────────────────────
-let map = [...baseMap];
 const getTile  = (c, r) => (c < 0 || c >= COLS || r < 0 || r >= ROWS) ? STEEL : map[r * COLS + c];
 const setTile  = (c, r, v) => { if (c >= 0 && c < COLS && r >= 0 && r < ROWS) map[r * COLS + c] = v; };
 const isSolid  = t => t === BRICK || t === STEEL || t === BASE;
@@ -217,7 +216,6 @@ class Particle {
     ctx.globalAlpha = 1;
   }
 }
-let particles = [];
 function emit(x, y, color, count = 8) {
   for (let i = 0; i < count; i++) particles.push(new Particle(x, y, color));
 }
